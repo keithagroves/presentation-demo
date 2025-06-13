@@ -15,7 +15,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide }) => {
       <div className="relative z-10">
         <div className="mb-8 animate-fade-in">
           <img 
-            src="./presentation-demo/sourceco-logo.svg"
+            src="https://raw.githubusercontent.com/keithagroves/presentation-demo/refs/heads/main/public/sourceco-logo.svg"
             alt="SourceCo Logo" 
             className="w-48 h-auto mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
