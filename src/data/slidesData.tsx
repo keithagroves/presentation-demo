@@ -5,9 +5,8 @@ import {
   GitBranch, Activity, Target, Globe, Bot, 
   Sparkles, Network, TrendingUp 
 } from 'lucide-react';
-import { Slide } from '../types/slides';
 
-export const slidesData: Slide[] = [
+export const slidesData: any[] = [
   {
     id: 'title',
     title: 'Strategic AI Assessment',
