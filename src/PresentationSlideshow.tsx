@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Award, Bot, Sparkles, Network, Layers, GitBranch, Activity } from 'lucide-react';
+import { TitleSlide } from './components/TitleSlide';
 
 const PresentationSlideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -274,21 +275,7 @@ const PresentationSlideshow = () => {
   const renderSlideContent = (slide) => {
     switch (slide.type) {
       case 'title':
-        return (
-          <div className="flex flex-col items-center justify-center min-h-[80vh] text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 opacity-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent"></div>
-            <div className="relative z-10">
-              <h1 className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-6 animate-fade-in">{slide.title}</h1>
-              <h2 className="text-4xl text-gray-700 font-light animate-fade-in-delay">{slide.subtitle}</h2>
-              <div className="mt-16 flex justify-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></div>
-                <div className="w-3 h-3 rounded-full bg-purple-600 animate-pulse delay-75"></div>
-                <div className="w-3 h-3 rounded-full bg-pink-600 animate-pulse delay-150"></div>
-              </div>
-            </div>
-          </div>
-        );
+        return <TitleSlide slide={slide} />;
 
       case 'content':
         return (
@@ -343,6 +330,15 @@ const PresentationSlideshow = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 flex justify-center">
+              <a 
+                href="/technical-deep-dive" 
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl group"
+              >
+                <FileText className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                View Technical Deep Dive
+              </a>
             </div>
           </div>
         );
