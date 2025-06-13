@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Bot, Sparkles, Network, Layers, GitBranch, Activity } from 'lucide-react';
 import { TitleSlide } from './components/TitleSlide';
 
@@ -332,13 +333,13 @@ const PresentationSlideshow = () => {
               ))}
             </div>
             <div className="mt-8 flex justify-center">
-              <a 
-                href="/technical-deep-dive" 
+              <Link 
+                to="/technical-deep-dive" 
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl group"
               >
                 <FileText className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 View Technical Deep Dive
-              </a>
+              </Link>
             </div>
           </div>
         );
