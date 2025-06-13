@@ -72,10 +72,11 @@ const PresentationSlideshow = () => {
     },
     {
       id: 'challenges',
-      title: 'Top 3 Challenges & Solutions',
+      title: 'Top 4 Challenges & Solutions',
       type: 'challenges',
       items: [
         { challenge: 'Data Heterogeneity', solution: 'Flexible schema mapping and AI-powered normalization', icon: <GitBranch className="w-8 h-8" /> },
+        { challenge: 'Data Drift', solution: 'Continuous monitoring and automated model retraining pipelines', icon: <Activity className="w-8 h-8" /> },
         { challenge: 'Permission Management', solution: 'Granular access control with real-time filtering', icon: <Shield className="w-8 h-8" /> },
         { challenge: 'Search Relevance', solution: 'PE-specific ranking models trained on user feedback', icon: <Target className="w-8 h-8" /> }
       ]
