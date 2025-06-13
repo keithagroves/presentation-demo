@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Bot, Sparkles, Network, Layers, GitBranch, Activity } from 'lucide-react';
-import { TitleSlide } from './components/TitleSlide';
+import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Award, Bot, Sparkles, Network, Layers, GitBranch, Activity } from 'lucide-react';
 
 const PresentationSlideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,7 +9,7 @@ const PresentationSlideshow = () => {
   const slides = [
     {
       id: 'title',
-      title: 'Strategic AI Assessment',
+      title: 'SourceCo Strategic AI',
       subtitle: 'From Fragmentation to Integration',
       type: 'title'
     },
@@ -275,11 +274,25 @@ const PresentationSlideshow = () => {
   const renderSlideContent = (slide) => {
     switch (slide.type) {
       case 'title':
-        return <TitleSlide slide={slide} />;
+        return (
+          <div className="flex flex-col items-center justify-center h-full text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 opacity-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent"></div>
+            <div className="relative z-10">
+              <h1 className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-6 animate-fade-in">{slide.title}</h1>
+              <h2 className="text-4xl text-gray-700 font-light animate-fade-in-delay">{slide.subtitle}</h2>
+              <div className="mt-16 flex justify-center space-x-2">
+                <div className="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></div>
+                <div className="w-3 h-3 rounded-full bg-purple-600 animate-pulse delay-75"></div>
+                <div className="w-3 h-3 rounded-full bg-pink-600 animate-pulse delay-150"></div>
+              </div>
+            </div>
+          </div>
+        );
 
       case 'content':
         return (
-          <div className="flex flex-col min-h-full p-16 relative">
+          <div className="flex flex-col h-full p-16 relative">
             <div className="absolute top-8 right-8 text-blue-600/20">
               {slide.icon}
             </div>
@@ -287,7 +300,7 @@ const PresentationSlideshow = () => {
               <span className="mr-4 text-blue-600">{slide.icon}</span>
               {slide.title}
             </h2>
-            <ul className="space-y-6 text-2xl flex-1">
+            <ul className="space-y-6 text-2xl">
               {slide.bullets.map((bullet, idx) => (
                 <li key={idx} className="flex items-start transform transition-all duration-500 hover:translate-x-2">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mr-4 mt-1 font-bold">▸</span>
@@ -300,10 +313,10 @@ const PresentationSlideshow = () => {
 
       case 'feature':
         return (
-          <div className="flex flex-col min-h-full p-16 relative overflow-hidden">
+          <div className="flex flex-col h-full p-16 relative overflow-hidden">
             <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-10 blur-3xl"></div>
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
-            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-1 shadow-2xl flex-1">
+            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-1 shadow-2xl">
               <div className="bg-white rounded-3xl p-12">
                 <div className="flex items-center mb-6">
                   <div className="text-blue-600 mr-6">{slide.icon}</div>
@@ -317,9 +330,9 @@ const PresentationSlideshow = () => {
 
       case 'architecture':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
-            <div className="grid grid-cols-2 gap-8 flex-1">
+            <div className="grid grid-cols-2 gap-8">
               {slide.components.map((comp, idx) => (
                 <div key={idx} className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
@@ -331,23 +344,14 @@ const PresentationSlideshow = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-8 flex justify-center">
-              <a 
-                href="/technical-deep-dive" 
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl group"
-              >
-                <FileText className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                View Technical Deep Dive
-              </a>
-            </div>
           </div>
         );
 
       case 'flow':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
-            <div className="space-y-4 flex-1">
+            <div className="space-y-4">
               {slide.steps.map((step, idx) => (
                 <div key={idx} className="flex items-center group">
                   <div className="relative">
@@ -370,7 +374,7 @@ const PresentationSlideshow = () => {
 
       case 'ai-features':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
             <div className="grid grid-cols-3 gap-6">
               {slide.features.map((feature, idx) => (
@@ -390,7 +394,7 @@ const PresentationSlideshow = () => {
 
       case 'challenges':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
             <div className="space-y-8">
               {slide.items.map((item, idx) => (
@@ -416,7 +420,7 @@ const PresentationSlideshow = () => {
 
       case 'timeline':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
             <div className="relative">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 via-purple-600 to-pink-600"></div>
@@ -442,7 +446,7 @@ const PresentationSlideshow = () => {
 
       case 'quick-wins':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12 flex items-center">
               <Zap className="w-12 h-12 text-yellow-500 mr-4" />
               {slide.title}
@@ -466,7 +470,7 @@ const PresentationSlideshow = () => {
 
       case 'education':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
             <div className="grid grid-cols-3 gap-8">
               {slide.modules.map((module, idx) => (
@@ -494,7 +498,7 @@ const PresentationSlideshow = () => {
 
       case 'training':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
             <div className="grid grid-cols-2 gap-8">
               {slide.materials.map((material, idx) => (
@@ -518,7 +522,7 @@ const PresentationSlideshow = () => {
 
       case 'adoption':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
             <div className="space-y-6">
               {slide.strategies.map((strategy, idx) => (
@@ -542,7 +546,7 @@ const PresentationSlideshow = () => {
 
       case 'enact':
         return (
-          <div className="flex flex-col min-h-full p-8 md:p-12 lg:p-16 relative overflow-hidden">
+          <div className="flex flex-col h-full p-8 md:p-12 lg:p-16 relative overflow-hidden">
             <div className="absolute -top-32 -right-32 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-10 blur-3xl"></div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 md:mb-4">{slide.title}</h2>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-6 md:mb-8">{slide.subtitle}</p>
@@ -572,7 +576,7 @@ const PresentationSlideshow = () => {
 
       case 'enact-tools':
         return (
-          <div className="flex flex-col min-h-full p-8 md:p-12 lg:p-16">
+          <div className="flex flex-col h-full p-8 md:p-12 lg:p-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 md:mb-8">{slide.title}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 overflow-y-auto">
               {slide.tools.map((category, idx) => (
@@ -594,7 +598,7 @@ const PresentationSlideshow = () => {
 
       case 'platform':
         return (
-          <div className="flex flex-col min-h-full p-16">
+          <div className="flex flex-col h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
             <div className="grid grid-cols-2 gap-8">
               {slide.advantages.map((advantage, idx) => (
@@ -612,7 +616,7 @@ const PresentationSlideshow = () => {
 
       case 'metrics':
         return (
-          <div className="flex flex-col min-h-full p-8 md:p-12 lg:p-16">
+          <div className="flex flex-col h-full p-8 md:p-12 lg:p-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-8 md:mb-12">{slide.title}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {slide.metrics.map((metric, idx) => (
@@ -643,7 +647,7 @@ const PresentationSlideshow = () => {
 
       case 'conclusion':
         return (
-          <div className="flex flex-col min-h-full p-16 relative overflow-hidden">
+          <div className="flex flex-col h-full p-16 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
             <div className="relative z-10">
               <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-16">{slide.title}</h2>
@@ -670,7 +674,7 @@ const PresentationSlideshow = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex flex-col">
+    <div className="w-full h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex flex-col">
       {/* Header */}
       <div className="bg-gray-900/50 backdrop-blur-lg border-b border-gray-700 px-8 py-5 flex items-center justify-between">
         <div className="flex items-center space-x-6">
@@ -703,7 +707,7 @@ const PresentationSlideshow = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 relative overflow-y-auto">
+      <div className="flex-1 relative overflow-hidden">
         {/* Slide Menu */}
         {showMenu && (
           <div className="absolute left-0 top-0 bottom-0 w-96 bg-gray-900/95 backdrop-blur-xl border-r border-gray-700 z-20 overflow-y-auto">
@@ -733,8 +737,8 @@ const PresentationSlideshow = () => {
         )}
 
         {/* Slide Content */}
-        <div className="min-h-full flex items-start justify-center p-4 md:p-6 lg:p-8 py-8">
-          <div className={`max-w-7xl w-full min-h-[80vh] bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl overflow-y-auto transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+        <div className="h-full flex items-center justify-center p-4 md:p-6 lg:p-8">
+          <div className={`max-w-7xl w-full h-full bg-white rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl overflow-hidden transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
             {renderSlideContent(slides[currentSlide])}
           </div>
         </div>
@@ -742,13 +746,13 @@ const PresentationSlideshow = () => {
         {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="fixed left-4 md:left-6 lg:left-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-gray-800/80 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl hover:bg-gray-700 transition-all duration-200 text-white group z-10"
+          className="absolute left-4 md:left-6 lg:left-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-gray-800/80 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl hover:bg-gray-700 transition-all duration-200 text-white group"
         >
           <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" />
         </button>
         <button
           onClick={nextSlide}
-          className="fixed right-4 md:right-6 lg:right-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-gray-800/80 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl hover:bg-gray-700 transition-all duration-200 text-white group z-10"
+          className="absolute right-4 md:right-6 lg:right-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-gray-800/80 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl hover:bg-gray-700 transition-all duration-200 text-white group"
         >
           <ChevronRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" />
         </button>
@@ -761,6 +765,50 @@ const PresentationSlideshow = () => {
           style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
         />
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fade-in-delay {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          50% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 1s ease-out;
+        }
+
+        .animate-fade-in-delay {
+          animation: fade-in-delay 1.5s ease-out;
+        }
+
+        .delay-75 {
+          animation-delay: 75ms;
+        }
+
+        .delay-150 {
+          animation-delay: 150ms;
+        }
+      `}</style>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 {
     "name": "sourceco-presentation",
     "version": "1.0.0",
-    "description": "SourceCo Strategic AI Assessment Presentation",
+    "description": "Strategic AI Presentation",
     "main": "index.js",
     "scripts": {
         "dev": "vite",
