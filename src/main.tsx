@@ -7,7 +7,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/sourceco">
       <Routes>
         <Route path="/" element={<PresentationSlideshow />} />
         <Route path="/technical-deep-dive" element={<TechnicalDeepDive />} />

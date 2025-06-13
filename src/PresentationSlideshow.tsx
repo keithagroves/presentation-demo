@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Award, Bot, Sparkles, Network, Layers, GitBranch, Activity } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Bot, Sparkles, Network, Layers, GitBranch, Activity } from 'lucide-react';
 import { TitleSlide } from './components/TitleSlide';
 
 const PresentationSlideshow = () => {
@@ -761,50 +761,6 @@ const PresentationSlideshow = () => {
           style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
         />
       </div>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fade-in-delay {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          50% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-
-        .animate-fade-in-delay {
-          animation: fade-in-delay 1.5s ease-out;
-        }
-
-        .delay-75 {
-          animation-delay: 75ms;
-        }
-
-        .delay-150 {
-          animation-delay: 150ms;
-        }
-      `}</style>
     </div>
   );
 };

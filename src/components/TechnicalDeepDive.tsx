@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowLeft, Database, Layers, Brain, Zap, GitBranch, Shield, Code, Server, Cloud, Lock, Monitor, CheckCircle, Network, Users } from 'lucide-react';
 
 const TechnicalDeepDive = () => {
