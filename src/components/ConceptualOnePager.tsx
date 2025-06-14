@@ -116,11 +116,11 @@ const ConceptualOnePager: React.FC<ConceptualOnePagerProps> = ({ onNext, onPrevi
       {/* Navigation */}
       <div className="absolute top-6 left-6 z-20">
         <Link 
-          to="/" 
+          to="/?slide=training-materials" 
           className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors duration-200"
         >
           <ArrowLeft size={20} />
-          <span className="font-medium">Back to Presentation</span>
+          <span className="font-medium">Back to Training</span>
         </Link>
       </div>
 

@@ -894,11 +894,11 @@ C) Cross-reference customer reviews and case studies for insights?`,
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Link 
-                to="/"
+                to="/?slide=training-materials"
                 className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
-                <span>Back to Presentation</span>
+                <span>Back to Training</span>
               </Link>
               <div className="w-px h-6 bg-gray-300"></div>
               <h1 className="text-2xl font-bold text-gray-900">Interactive Training Scenario</h1>

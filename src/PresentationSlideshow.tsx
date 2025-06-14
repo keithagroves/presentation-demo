@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Bot, Sparkles, Network, Layers, GitBranch, Activity, Clock, CheckCircle, Star, BarChart3, Award, Settings, Archive, Play } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, Menu, X, Database, Search, Workflow, FileText, Users, Lightbulb, Calendar, Target, Brain, Zap, Globe, Shield, Rocket, TrendingUp, Bot, Sparkles, Network, Layers, GitBranch, Activity, Clock, CheckCircle, Star, BarChart3, Award, Settings, Archive, Play, ArrowRight, DollarSign } from 'lucide-react';
 import { TitleSlide } from './components/TitleSlide';
 import { slidesData } from './data/slidesData';
 
 const PresentationSlideshow = () => {
+  const [searchParams] = useSearchParams();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -13,7 +14,7 @@ const PresentationSlideshow = () => {
     {
       id: 'title',
       title: 'Strategic AI Assessment',
-      subtitle: 'From Fragmentation to Integration',
+      subtitle: 'From Fragmentation to Intelligence',
       type: 'title'
     },
     {
@@ -22,18 +23,18 @@ const PresentationSlideshow = () => {
       type: 'content',
       icon: <Rocket className="w-8 h-8" />,
       bullets: [
-        'Current State: Fragmented data environment',
-        'Future Vision: Unified AI system for intelligent workflows',
-        'Goal: Transform private equity deal sourcing',
-        'Innovation: Extensible platform leveraging open standards'
+        'Current State: Fragmented data sources across teams',
+        'Future Vision: Unified AI research assistant for deal professionals',
+        'Goal: Transform private equity research from manual to autonomous',
+        'Innovation: AI-first platform with extensible tool ecosystem'
       ]
     },
     {
       id: 'workstream-choice',
       title: 'Chosen Workstream',
       type: 'feature',
-      workstream: 'Search & Research Across All Data',
-      description: 'Building a unified search system that seamlessly integrates structured and unstructured data sources',
+      workstream: 'Intelligent Research Assistant',
+      description: 'Building an AI system that conducts autonomous research across all data sources, delivering comprehensive analysis with full citations',
       icon: <Search className="w-16 h-16" />
     },
     {
@@ -41,12 +42,12 @@ const PresentationSlideshow = () => {
       title: 'System Architecture',
       type: 'architecture',
       components: [
-        { name: 'Schema-Agnostic Ingestion', desc: 'Kafka + Delta Lake for unified data streaming and storage', icon: <Database className="w-8 h-8" /> },
-        { name: 'Semantic Index Layer', desc: 'Elasticsearch with vector embeddings and entity graphs', icon: <Layers className="w-8 h-8" /> },
-        { name: 'AI Processing Engine', desc: 'PE-tuned models for ranking and entity resolution', icon: <Brain className="w-8 h-8" /> },
-        { name: 'Context-Aware Query Engine', desc: 'Session graphs with conversational memory', icon: <Zap className="w-8 h-8" /> },
-        { name: 'Zero-Trust Security Layer', desc: 'Dynamic policy engine with row-level permissions', icon: <Shield className="w-8 h-8" /> },
-        { name: 'Enact Protocol Registry', desc: 'Secure tool orchestration with versioning', icon: <GitBranch className="w-8 h-8" /> }
+        { name: 'Simple Data Connectors', desc: 'Direct API integrations with existing systems (CRM, email, documents)', icon: <Database className="w-8 h-8" /> },
+        { name: 'Unified Search Layer', desc: 'PostgreSQL with pgvector for semantic and keyword search', icon: <Layers className="w-8 h-8" /> },
+        { name: 'AI Research Engine', desc: 'GPT-4/Claude with PE-specific few-shot prompting and reasoning', icon: <Brain className="w-8 h-8" /> },
+        { name: 'Context Management', desc: 'Session-aware query enhancement and conversation memory', icon: <Zap className="w-8 h-8" /> },
+        { name: 'Security Layer', desc: 'Source-system authentication with permission inheritance', icon: <Shield className="w-8 h-8" /> },
+        { name: 'Enact Tool Registry', desc: 'Extensible tool ecosystem with versioning and security', icon: <GitBranch className="w-8 h-8" /> }
       ]
     },
     {
@@ -54,11 +55,11 @@ const PresentationSlideshow = () => {
       title: 'Data Flow Architecture',
       type: 'flow',
       steps: [
-        'Kafka streams ingest data from heterogeneous sources (CRM, email, docs, DBs)',
-        'Delta Lake stores schema-evolved data with full lineage and versioning',
-        'AI models generate embeddings, extract entities, and build context graphs',
-        'Security policies dynamically filter data based on user permissions',
-        'Context-aware ranking delivers personalized, PE-relevant results'
+        'Direct connectors pull data from existing systems (Salesforce, Gmail, SharePoint, databases)',
+        'PostgreSQL stores normalized data with vector embeddings for semantic search',
+        'AI agents analyze user queries using few-shot PE prompting and plan multi-step research workflows',
+        'Security policies ensure users only see data they have permission to access',
+        'Results delivered with full source attribution and confidence scoring'
       ]
     },
     {
@@ -66,74 +67,113 @@ const PresentationSlideshow = () => {
       title: 'AI Implementation Strategy',
       type: 'ai-features',
       features: [
-        { title: 'Vector Embeddings', desc: 'Semantic search capabilities', icon: <Network className="w-6 h-6" /> },
-        { title: 'Entity Recognition', desc: 'PE-specific term extraction', icon: <Bot className="w-6 h-6" /> },
-        { title: 'ML Ranking', desc: 'Intelligent relevance scoring', icon: <TrendingUp className="w-6 h-6" /> },
-        { title: 'Autonomous Agents', desc: 'Self-directed research workflows', icon: <Brain className="w-6 h-6" /> },
-        { title: 'Citation Engine', desc: 'Full source attribution & audit trails', icon: <FileText className="w-6 h-6" /> },
-        { title: 'Cross-lingual', desc: 'Multi-language support', icon: <Globe className="w-6 h-6" /> }
+        { title: 'Semantic Search', desc: 'Vector embeddings for conceptual understanding', icon: <Network className="w-6 h-6" /> },
+        { title: 'Few-Shot PE Intelligence', desc: 'PE-specific prompting that learns from minimal examples', icon: <Brain className="w-6 h-6" /> },
+        { title: 'Intelligent Ranking', desc: 'Context-aware relevance scoring', icon: <TrendingUp className="w-6 h-6" /> },
+        { title: 'Research Agents', desc: 'Multi-step autonomous analysis workflows', icon: <Bot className="w-6 h-6" /> },
+        { title: 'Citation Engine', desc: 'Full source tracking and audit trails', icon: <FileText className="w-6 h-6" /> },
+        { title: 'Conversation Memory', desc: 'Session context for follow-up queries', icon: <Zap className="w-6 h-6" /> }
       ]
     },
     {
+      id: 'few-shot-details',
+      title: 'Few-Shot PE Intelligence',
+      type: 'few-shot-strategy',
+      subtitle: 'Cost-Effective AI Training for Immediate PE Domain Knowledge',
+      benefits: [
+        {
+          title: 'Zero Training Costs',
+          desc: '90% cheaper than fine-tuning - works with existing GPT-4/Claude models',
+          icon: <DollarSign className="w-6 h-6" />,
+          metric: '90% cost reduction'
+        },
+        {
+          title: 'Immediate Intelligence',
+          desc: 'PE terminology understanding from day one with 5-10 example prompts',
+          icon: <Zap className="w-6 h-6" />,
+          metric: 'Day 1 deployment'
+        },
+        {
+          title: 'Adaptive Learning',
+          desc: 'Prompts improve automatically from user corrections and feedback',
+          icon: <Brain className="w-6 h-6" />,
+          metric: 'Self-improving'
+        },
+        {
+          title: 'PE Domain Awareness',
+          desc: 'Understands ARR, EBITDA multiples, deal structures, LP relationships',
+          icon: <Target className="w-6 h-6" />,
+          metric: 'Domain-native'
+        }
+      ],
+      example: {
+        title: 'Example: Learning PE Context',
+        input: 'User asks: "Find SaaS companies with strong ARR growth"',
+        processing: 'AI learns: ARR = Annual Recurring Revenue (key SaaS metric for PE)',
+        nextQuery: 'Next query: "ARR multiples for Series B SaaS"',
+        result: 'AI automatically searches for valuation data and understands context'
+      }
+    },
+    {
       id: 'deep-research-ai',
-      title: 'Deep Research AI Agents',
+      title: 'Autonomous Research Agents',
       type: 'deep-research',
-      subtitle: 'Autonomous Multi-Step Research for PE Professionals',
+      subtitle: 'AI That Researches Like Expert Analysts',
       capabilities: [
         {
-          title: 'Autonomous Planning',
-          desc: 'AI breaks complex research questions into sub-tasks and executes them independently',
+          title: 'Research Planning',
+          desc: 'Breaks complex questions into structured research tasks automatically',
           icon: <Brain className="w-6 h-6" />,
-          example: 'Given "Analyze SaaS market in DACH region", AI creates plan: market size → key players → growth trends → investment opportunities'
+          example: 'Given "Analyze fintech market opportunities", creates plan: market size → competitive landscape → deal flow → investment thesis'
         },
         {
-          title: 'Dynamic Tool Orchestration',
-          desc: 'Intelligently chains multiple tools and data sources based on findings',
+          title: 'Multi-Source Analysis',
+          desc: 'Intelligently searches across internal and external data sources',
           icon: <Network className="w-6 h-6" />,
-          example: 'Starts with web search → identifies companies → pulls CRM data → analyzes financials → generates comp analysis'
+          example: 'Combines CRM relationship data with market reports, news analysis, and competitive intelligence'
         },
         {
-          title: 'Adaptive Iteration',
-          desc: 'Learns from results and adjusts research strategy in real-time',
+          title: 'Adaptive Learning',
+          desc: 'Refines search strategy based on findings and iterates until complete',
           icon: <GitBranch className="w-6 h-6" />,
-          example: 'If initial search yields poor results, AI reformulates queries and explores alternative data sources'
+          example: 'If initial market data is insufficient, expands search to adjacent markets and alternative sources'
         },
         {
-          title: 'Synthesis with Citations',
-          desc: 'Compiles comprehensive reports with full source attribution and reasoning chains',
+          title: 'Comprehensive Reports',
+          desc: 'Delivers analysis with full citations and confidence scoring',
           icon: <FileText className="w-6 h-6" />,
-          example: 'Investment memo with every claim linked to specific data points, creating audit trail for compliance'
+          example: 'Investment memo with every data point sourced and confidence levels for regulatory compliance'
         }
       ]
     },
     {
       id: 'research-workflow',
-      title: 'Autonomous Research Workflow',
+      title: 'Research Workflow Example',
       type: 'research-flow',
-      subtitle: 'How Deep Research AI Transforms Deal Analysis',
+      subtitle: 'How AI Transforms Deal Analysis',
       workflow: [
         {
-          step: 'Query Planning',
-          desc: 'AI breaks "Analyze potential acquisition targets in fintech" into research sub-tasks',
-          details: ['Market landscape analysis', 'Company identification', 'Financial assessment', 'Strategic fit evaluation'],
+          step: 'Query Understanding',
+          desc: 'AI interprets "Analyze fintech acquisition targets" and creates research plan',
+          details: ['Market landscape analysis', 'Target identification', 'Financial assessment', 'Strategic fit evaluation'],
           icon: <Brain className="w-8 h-8" />
         },
         {
-          step: 'Dynamic Search',
-          desc: 'Executes targeted searches across multiple data sources',
-          details: ['Web research for market trends', 'CRM queries for existing relationships', 'Financial database searches', 'News sentiment analysis'],
+          step: 'Information Gathering',
+          desc: 'Searches internal CRM, external databases, news sources, and market reports',
+          details: ['CRM relationship mapping', 'Financial database queries', 'News sentiment analysis', 'Industry report synthesis'],
           icon: <Search className="w-8 h-8" />
         },
         {
-          step: 'Adaptive Learning',
-          desc: 'Analyzes results and refines search strategy',
-          details: ['Evaluates information quality', 'Identifies knowledge gaps', 'Reformulates queries', 'Explores new data sources'],
+          step: 'Analysis & Synthesis',
+          desc: 'Identifies patterns, evaluates opportunities, and assesses strategic fit',
+          details: ['Competitive positioning', 'Financial performance trends', 'Market opportunity sizing', 'Risk assessment'],
           icon: <GitBranch className="w-8 h-8" />
         },
         {
-          step: 'Report Synthesis',
-          desc: 'Compiles comprehensive analysis with full citations',
-          details: ['Executive summary with key findings', 'Detailed analysis sections', 'Source attribution for all claims', 'Confidence scoring for insights'],
+          step: 'Report Generation',
+          desc: 'Delivers comprehensive memo with executive summary and detailed findings',
+          details: ['Executive summary', 'Investment thesis', 'Risk factors', 'Source citations with confidence scores'],
           icon: <FileText className="w-8 h-8" />
         }
       ]
@@ -143,9 +183,9 @@ const PresentationSlideshow = () => {
       title: 'Top 3 Challenges & Solutions',
       type: 'challenges',
       items: [
-        { challenge: 'Research Complexity', solution: 'Autonomous AI agents that plan and execute multi-step research workflows with adaptive learning', icon: <Brain className="w-8 h-8" /> },
-        { challenge: 'Information Verification', solution: 'Citation engines with source attribution and confidence scoring for all insights', icon: <Shield className="w-8 h-8" /> },
-        { challenge: 'Tool Integration', solution: 'Dynamic tool orchestration that learns optimal combinations through reinforcement learning', icon: <Target className="w-8 h-8" /> }
+        { challenge: 'Manual research takes weeks', solution: 'Autonomous AI agents complete comprehensive analysis in hours', icon: <Brain className="w-8 h-8" /> },
+        { challenge: 'Information scattered across systems', solution: 'Unified search with intelligent source prioritization', icon: <Shield className="w-8 h-8" /> },
+        { challenge: 'Lack of audit trails', solution: 'Complete citation tracking and confidence scoring for compliance', icon: <Target className="w-8 h-8" /> }
       ]
     },
     {
@@ -154,15 +194,15 @@ const PresentationSlideshow = () => {
       type: 'enact',
       subtitle: 'Transform Any Tool into an AI Capability',
       benefits: [
-        { title: 'Rapid Integration', desc: 'Add new data sources in hours, not weeks', icon: <Zap className="w-6 h-6" /> },
-        { title: 'No Code Required', desc: 'Define tools with simple YAML configuration', icon: <FileText className="w-6 h-6" /> },
-        { title: 'Version Control', desc: 'Built-in versioning and security signatures', icon: <Shield className="w-6 h-6" /> },
-        { title: 'Community Ecosystem', desc: 'Leverage and contribute PE-specific tools', icon: <Users className="w-6 h-6" /> }
+        { title: 'Rapid Integration', desc: 'Add new data sources and capabilities in hours', icon: <Zap className="w-6 h-6" /> },
+        { title: 'No Code Required', desc: 'Define tools with simple configuration files', icon: <FileText className="w-6 h-6" /> },
+        { title: 'Built-in Security', desc: 'Automatic authentication and permission handling', icon: <Shield className="w-6 h-6" /> },
+        { title: 'Community Ecosystem', desc: 'Share and leverage PE-specific research tools', icon: <Users className="w-6 h-6" /> }
       ],
       example: {
-        name: 'sourceco/data/salesforce-extractor',
-        description: 'Extracts and normalizes deal data from Salesforce',
-        command: "npx sf-cli@2.0.0 query --soql '${query}' --format json"
+        name: 'sourceco/crm/salesforce-deals',
+        description: 'Extract deal pipeline and relationship data',
+        command: 'authentication: oauth2, endpoints: [deals, contacts, opportunities]'
       }
     },
     {
@@ -171,35 +211,36 @@ const PresentationSlideshow = () => {
       type: 'enact-tools',
       tools: [
         {
-          category: 'Data Extraction',
+          category: 'Data Sources',
           items: [
-            { name: 'DDQ Scanner', desc: 'Extract key fields from due diligence questionnaires' },
-            { name: 'PDF Analyzer', desc: 'Parse complex PE documents and tables' },
-            { name: 'Email Parser', desc: 'Extract deal info from email threads' }
+            { name: 'CRM Extractors', desc: 'Pull deal pipeline and relationship data' },
+            { name: 'Document Parsers', desc: 'Extract data from PDFs and presentations' },
+            { name: 'Email Analyzers', desc: 'Mine deal information from email threads' },
+            { name: 'Financial Data APIs', desc: 'Connect to PitchBook, CapitalIQ, Bloomberg' }
           ]
         },
         {
-          category: 'AI Analysis',
+          category: 'Research Tools',
           items: [
-            { name: 'Entity Extractor', desc: 'Identify firms, partners, and deal entities' },
-            { name: 'Sentiment Analyzer', desc: 'Assess market sentiment from news' },
-            { name: 'Comp Finder', desc: 'Find comparable deals automatically' }
+            { name: 'Market Analyzers', desc: 'Autonomous market research with citations' },
+            { name: 'Comparable Deal Finders', desc: 'Identify and analyze similar transactions' },
+            { name: 'Industry Report Processors', desc: 'Extract insights from research reports' }
           ]
         },
         {
-          category: 'Workflows',
+          category: 'Analysis Agents',
           items: [
-            { name: 'Deal Pipeline', desc: 'Complete deal analysis workflow' },
-            { name: 'Report Generator', desc: 'Create investment memos' },
-            { name: 'Alert System', desc: 'Monitor deal triggers' }
+            { name: 'Due Diligence Assistants', desc: 'Multi-step DD workflow automation' },
+            { name: 'Valuation Modelers', desc: 'Automated comparable company analysis' },
+            { name: 'Risk Assessors', desc: 'Systematic risk evaluation frameworks' }
           ]
         },
         {
-          category: 'Deep Research Agents',
+          category: 'Workflow Automation',
           items: [
-            { name: 'Market Analyzer', desc: 'Autonomous market research with citation tracking' },
-            { name: 'Deal Investigator', desc: 'Multi-step due diligence with adaptive planning' },
-            { name: 'Comp Generator', desc: 'Self-directed comparable deal analysis' }
+            { name: 'Pipeline Trackers', desc: 'Monitor deal progress and milestones' },
+            { name: 'Report Generators', desc: 'Create investment memos and presentations' },
+            { name: 'Alert Systems', desc: 'Notify on market changes and opportunities' }
           ]
         }
       ]
@@ -209,10 +250,10 @@ const PresentationSlideshow = () => {
       title: '12-Month Implementation Roadmap',
       type: 'timeline',
       phases: [
-        { month: '0-3', title: 'Foundation', items: ['Basic search infrastructure', 'Initial data connectors', 'Deep research AI prototype'], color: 'from-blue-400 to-blue-600' },
-        { month: '3-6', title: 'Enhancement', items: ['Autonomous research agents', 'Citation & audit trails', 'Advanced tool orchestration'], color: 'from-purple-400 to-purple-600' },
-        { month: '6-9', title: 'Optimization', items: ['Multi-step workflow automation', 'Reinforcement learning optimization', 'Research agent marketplace'], color: 'from-pink-400 to-pink-600' },
-        { month: '9-12', title: 'Scale', items: ['Full autonomous capabilities', 'Industry-specific research agents', 'Community-driven agent library'], color: 'from-green-400 to-green-600' }
+        { month: '0-3', title: 'Foundation', items: ['Core search infrastructure', 'Basic AI research agents', 'Key data connectors'], color: 'from-blue-400 to-blue-600' },
+        { month: '3-6', title: 'Enhancement', items: ['Advanced research workflows', 'Citation systems', 'Tool marketplace'], color: 'from-purple-400 to-purple-600' },
+        { month: '6-9', title: 'Optimization', items: ['Multi-step autonomous agents', 'Conversation memory', 'Performance tuning'], color: 'from-pink-400 to-pink-600' },
+        { month: '9-12', title: 'Scale', items: ['Full autonomous capabilities', 'Community tool ecosystem', 'Advanced analytics'], color: 'from-green-400 to-green-600' }
       ]
     },
     {
@@ -220,11 +261,11 @@ const PresentationSlideshow = () => {
       title: '90-Day Quick Wins',
       type: 'quick-wins',
       wins: [
-        { title: 'Autonomous Deal Analysis', icon: <Brain className="w-6 h-6" /> },
-        { title: 'Citation & Audit Trails', icon: <FileText className="w-6 h-6" /> },
-        { title: 'Research Agent Hub', icon: <GitBranch className="w-6 h-6" /> },
-        { title: 'Multi-Step Workflows', icon: <Workflow className="w-6 h-6" /> },
-        { title: 'Insight Dashboard', icon: <Activity className="w-6 h-6" /> }
+        { title: 'Smart Search', icon: <Search className="w-6 h-6" /> },
+        { title: 'Research Assistant', icon: <Brain className="w-6 h-6" /> },
+        { title: 'Citation Tracking', icon: <FileText className="w-6 h-6" /> },
+        { title: 'Tool Integration', icon: <GitBranch className="w-6 h-6" /> },
+        { title: 'User Dashboard', icon: <Activity className="w-6 h-6" /> }
       ]
     },
     {
@@ -232,9 +273,9 @@ const PresentationSlideshow = () => {
       title: 'Team Enablement Journey',
       type: 'education',
       modules: [
-        { title: 'Foundation', desc: 'Understanding AI-powered search', duration: '2 hours', level: 'Beginner', color: 'from-blue-400 to-blue-600' },
-        { title: 'Practical Skills', desc: 'Hands-on search techniques', duration: '3 hours', level: 'Intermediate', color: 'from-purple-400 to-purple-600' },
-        { title: 'Advanced Features', desc: 'Power user capabilities', duration: '2 hours', level: 'Advanced', color: 'from-pink-400 to-pink-600' }
+        { title: 'Foundation', desc: 'Understanding AI-powered research and basic query techniques', duration: '2 hours', level: 'Beginner', color: 'from-blue-400 to-blue-600' },
+        { title: 'Practical Skills', desc: 'Hands-on training with research workflows and tool usage', duration: '3 hours', level: 'Intermediate', color: 'from-purple-400 to-purple-600' },
+        { title: 'Advanced Features', desc: 'Power user capabilities and custom tool creation', duration: '2 hours', level: 'Advanced', color: 'from-pink-400 to-pink-600' }
       ]
     },
     {
@@ -242,10 +283,22 @@ const PresentationSlideshow = () => {
       title: 'Training Arsenal',
       type: 'training',
       materials: [
-        { type: 'Visual Guide', desc: 'One-pager concept explanation', icon: <FileText className="w-8 h-8" /> },
-        { type: 'Tutorials', desc: 'Step-by-step workflows', icon: <Workflow className="w-8 h-8" /> },
-        { type: 'Quick Ref', desc: 'Common search patterns', icon: <Zap className="w-8 h-8" /> },
-        { type: 'Videos', desc: 'Role-specific training', icon: <Users className="w-8 h-8" /> }
+        { 
+          type: 'One-Pager', 
+          desc: 'PE-focused research agent overview for partners', 
+          icon: <FileText className="w-8 h-8" />,
+          link: '/conceptual-one-pager',
+          time: '3 minutes',
+          audience: 'Partners & Principals'
+        },
+        { 
+          type: 'Interactive Scenario', 
+          desc: 'Hands-on training with AI research workflows', 
+          icon: <Users className="w-8 h-8" />,
+          link: '/interactive-scenario',
+          time: '45-60 minutes',
+          audience: 'Analysts & Associates'
+        }
       ]
     },
     {
@@ -253,10 +306,10 @@ const PresentationSlideshow = () => {
       title: 'Driving Organizational Change',
       type: 'adoption',
       strategies: [
-        { title: 'Champion Program', desc: 'Identify and empower super-users', progress: 85 },
-        { title: 'Workflow Integration', desc: 'Embed in daily operations', progress: 75 },
-        { title: 'Continuous Support', desc: 'Weekly office hours & help', progress: 90 },
-        { title: 'Feedback Loop', desc: 'Iterate based on user input', progress: 80 }
+        { title: 'Champion Program', desc: 'Identify power users and early adopters', progress: 85 },
+        { title: 'Workflow Integration', desc: 'Embed AI research into daily deal processes', progress: 75 },
+        { title: 'Continuous Support', desc: 'Weekly office hours and responsive help desk', progress: 90 },
+        { title: 'Feedback Loop', desc: 'Regular user input driving feature development', progress: 80 }
       ]
     },
     {
@@ -266,22 +319,22 @@ const PresentationSlideshow = () => {
       advantages: [
         {
           title: 'Network Effects',
-          desc: 'Each new tool makes the platform more valuable',
+          desc: 'Each new tool increases platform value for all users',
           metric: '10x value growth with tool ecosystem'
         },
         {
           title: 'Democratization',
-          desc: 'Business users can create tools without coding',
+          desc: 'Business users create research workflows without technical skills',
           metric: '5x faster capability expansion'
         },
         {
-          title: 'Industry Standard',
-          desc: 'Position SourceCo as the PE automation hub',
-          metric: 'First-mover advantage in PE tools'
+          title: 'Industry Leadership',
+          desc: 'Position as the go-to PE research automation platform',
+          metric: 'First-mover advantage in PE research'
         },
         {
           title: 'Future-Proof',
-          desc: 'Any new AI model can use all existing tools',
+          desc: 'Any new AI model can leverage existing tool ecosystem',
           metric: 'Zero integration cost for new AI'
         }
       ]
@@ -291,22 +344,22 @@ const PresentationSlideshow = () => {
       title: 'Success Metrics Dashboard',
       type: 'metrics',
       metrics: [
-        { name: 'Research Reports', current: '15', target: '100+', unit: 'reports/week', progress: 15 },
-        { name: 'Citation Accuracy', current: '94%', target: '99%', unit: '', progress: 94 },
-        { name: 'Research Agents', current: '5', target: '50+', unit: 'agents', progress: 10 },
-        { name: 'Analysis Time', current: '8hrs', target: '30min', unit: 'per deal', progress: 75 }
+        { name: 'Research Reports', current: 'From 2-3 per week', target: 'Target 20+ comprehensive analyses weekly', unit: '', progress: 15 },
+        { name: 'Research Time', current: 'From 2-3 days per analysis', target: 'Target 2-3 hours with AI assistance', unit: '', progress: 75 },
+        { name: 'Data Sources', current: 'From siloed searching', target: 'Target unified access across all systems', unit: '', progress: 40 },
+        { name: 'Audit Compliance', current: 'From manual citation', target: 'Target 100% automated source tracking', unit: '', progress: 85 }
       ]
     },
     {
       id: 'conclusion',
-      title: 'The Future is Intelligent & Extensible',
+      title: 'The Future is Intelligent & Practical',
       type: 'conclusion',
       points: [
-        'Autonomous AI agents that research like expert analysts',
-        'Multi-step workflows with adaptive learning and backtracking',
+        'AI agents that research like expert analysts, available 24/7',
+        'Simple, reliable infrastructure that just works',
         'Complete transparency with citations and audit trails',
-        'Infinitely extensible through community-driven agent ecosystem',
-        'Platform approach: Not just search, but autonomous PE intelligence'
+        'Extensible platform growing through community contributions',
+        'Focus on results, not technology complexity'
       ]
     },
     {
@@ -317,138 +370,66 @@ const PresentationSlideshow = () => {
       solutions: [
         {
           challenge: 'Unifying Disparate Data Sources',
-          approach: 'Schema-Agnostic Data Lake with AI Normalization',
+          approach: 'Simple Direct Integrations with Unified Interface',
           technical: [
-            'Apache Kafka for real-time data streaming from all sources',
-            'Delta Lake with schema evolution for flexible data storage',
-            'AI-powered entity resolution using ML models trained on PE data',
-            'GraphQL federation layer providing unified query interface'
+            'Direct API connections to existing systems (Salesforce, SharePoint, Gmail)',
+            'PostgreSQL with pgvector for unified storage and semantic search',
+            'Standardized data models for common PE entities (companies, deals, contacts)',
+            'Real-time sync with change detection and incremental updates'
           ],
-          diagram: 'CRM → Kafka → Delta Lake ← Email/Docs ← Financial DBs',
+          diagram: 'Existing Systems → Direct APIs → PostgreSQL + pgvector → Unified Search',
           icon: <Database className="w-8 h-8" />
         },
         {
           challenge: 'Cross-System Permission Boundaries',
-          approach: 'Zero-Trust Security with Dynamic Policy Engine',
+          approach: 'Permission Inheritance from Source Systems',
           technical: [
-            'OAuth 2.0/OIDC integration with all source systems',
-            'Policy engine evaluating permissions at query time',
-            'Row-level security applied to unified index',
-            'Audit logging for all access patterns and data lineage'
+            'OAuth integration with existing authentication systems',
+            'Permission mapping and inheritance from source systems',
+            'Query-time access control with transparent filtering',
+            'Full audit logging for compliance and security monitoring'
           ],
-          diagram: 'User → Policy Engine → Source Auth → Filtered Results',
+          diagram: 'User → Source System Auth → Permission Check → Filtered Results',
           icon: <Shield className="w-8 h-8" />
         },
         {
-          challenge: 'PE-Specific Relevancy Ranking',
-          approach: 'Domain-Aware Learning-to-Rank Models',
+          challenge: 'PE Domain Intelligence',
+          approach: 'Few-Shot Prompting with Domain-Specific Context',
           technical: [
-            'BERT models fine-tuned on PE documents and terminology',
-            'Learning-to-rank using historical user interaction data',
-            'Multi-signal ranking: content, recency, user context, deal stage',
-            'A/B testing framework for continuous model improvement'
+            'Pre-built prompt templates for common PE research patterns',
+            'Dynamic context injection based on user role and query type',
+            'Few-shot learning from PE examples (no expensive training required)',
+            'Continuous prompt improvement through user feedback loops'
           ],
-          diagram: 'Query → Entity Extraction → Scoring → Ranking → Results',
-          icon: <TrendingUp className="w-8 h-8" />
+          diagram: 'Query → PE Prompt Template → GPT-4/Claude → Domain-Aware Results',
+          icon: <Brain className="w-8 h-8" />
         },
         {
-          challenge: 'Maintaining Search Context',
-          approach: 'Conversational Memory with Session Graphs',
+          challenge: 'Research Context & Citation',
+          approach: 'Session Memory with Full Source Attribution',
           technical: [
-            'Session-based context graphs tracking entity relationships',
-            'Vector embeddings for semantic similarity across queries',
-            'LLM-powered query expansion using conversation history',
-            'Temporal context weighting based on search patterns'
+            'Conversation history tracking for context continuity',
+            'Complete source attribution with confidence scoring',
+            'Research trail visualization for audit and compliance',
+            'Automated citation formatting for regulatory requirements'
           ],
-          diagram: 'Query History → Context Graph → Enhanced Query → Results',
-          icon: <Brain className="w-8 h-8" />
+          diagram: 'Query + Context → Research → Results + Citations → Audit Trail',
+          icon: <Zap className="w-8 h-8" />
         }
       ]
     },
     {
-      id: 'context-management',
-      title: 'Intelligent Context Management',
-      type: 'context-system',
-      subtitle: 'Maintaining Search Context Across Related Queries',
-      features: [
-        {
-          title: 'Session Memory Graph',
-          description: 'Tracks entities, relationships, and concepts across search sessions',
-          technical: 'Graph database storing user interactions, entity relationships, and temporal patterns',
-          benefit: 'Understands that "ABC Corp" in query 1 relates to "portfolio company" in query 3',
-          icon: <Network className="w-8 h-8" />
-        },
-        {
-          title: 'Semantic Query Expansion',
-          description: 'Automatically enhances queries using conversation history',
-          technical: 'Vector similarity search on previous queries + LLM-powered expansion',
-          benefit: 'Query "recent deals" becomes "recent deals similar to ABC Corp SaaS acquisition"',
-          icon: <Brain className="w-8 h-8" />
-        },
-        {
-          title: 'Contextual Ranking Boost',
-          description: 'Prioritizes results related to current research thread',
-          technical: 'Context vector added to ranking signals with decay over time',
-          benefit: 'Results about SaaS companies rank higher when researching SaaS market',
-          icon: <TrendingUp className="w-8 h-8" />
-        },
-        {
-          title: 'Research Trail Visualization',
-          description: 'Shows how current search relates to previous queries',
-          technical: 'Interactive graph UI displaying query relationships and entity connections',
-          benefit: 'Users see research breadcrumbs and can backtrack or explore related paths',
-          icon: <GitBranch className="w-8 h-8" />
-        }
-      ],
-      example: {
-        scenario: 'SaaS Market Research Session',
-        queries: [
-          { step: 1, query: 'SaaS companies in DACH region', context: 'Initial market exploration' },
-          { step: 2, query: 'enterprise software valuations', context: 'System remembers SaaS focus, surfaces SaaS-specific valuations' },
-          { step: 3, query: 'competitive landscape', context: 'Auto-scoped to DACH SaaS based on session context' },
-          { step: 4, query: 'due diligence checklist', context: 'Prioritizes SaaS-specific DD items from context' }
-        ]
+      id: 'thank-you',
+      title: 'Thank You',
+      type: 'thank-you',
+      subtitle: 'Questions & Discussion',
+      contact: {
+        email: 'keithalgroves@gmail.com',
+        website: 'www.enactprotocol.com'
       }
-    },
-    {
-      id: 'conceptual-one-pager',
-      title: 'Your Personal Research Analyst',
-      type: 'interactive-demo',
-      subtitle: 'PE-Focused AI Agent Overview',
-      description: 'See how autonomous research agents transform PE deal analysis in 3 minutes',
-      scenario: {
-        title: 'AI-Powered PE Research',
-        role: 'Partner or Principal',
-        situation: 'Need to understand autonomous research agent value proposition',
-        challenge: 'Quickly grasp how AI transforms traditional PE research workflows',
-        objectives: [
-          'Understand the PE research time savings',
-          'See specific use cases for deal workflows',
-          'Grasp the "personal analyst" concept',
-          'Appreciate IC-ready output quality'
-        ]
-      }
-    },
-    {
-      id: 'interactive-scenario',
-      title: 'Interactive Training Scenario',
-      type: 'interactive-demo',
-      subtitle: 'Learn Through Realistic Usage',
-      description: 'Experience AI-powered deal research through a hands-on training exercise',
-      scenario: {
-        title: 'AI-Powered Deal Research',
-        role: 'Senior Associate at SourceCo Partners',
-        situation: 'Potential acquisition target: TechFlow Solutions (B2B SaaS logistics)',
-        challenge: 'Complete preliminary research in 2 hours vs usual 8+ hours',
-        objectives: [
-          'Master autonomous research agent workflow',
-          'Guide AI through complex multi-step analysis',
-          'Validate and refine AI-generated insights',
-          'Synthesize findings for executive presentation'
-        ]
-      }
-    },
-  ];
+    }
+];
+   
 
   const nextSlide = () => {
     if (!isTransitioning) {
@@ -485,6 +466,17 @@ const PresentationSlideshow = () => {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [isTransitioning]);
+
+  // Handle navigation from URL parameters
+  useEffect(() => {
+    const slideId = searchParams.get('slide');
+    if (slideId) {
+      const slideIndex = slides.findIndex(slide => slide.id === slideId);
+      if (slideIndex !== -1) {
+        setCurrentSlide(slideIndex);
+      }
+    }
+  }, [searchParams]);
 
   const renderSlideContent = (slide) => {
     switch (slide.type) {
@@ -599,6 +591,64 @@ const PresentationSlideshow = () => {
                 </div>
               ))}
             </div>
+          </div>
+        );
+
+      case 'few-shot-strategy':
+        return (
+          <div className="flex flex-col min-h-full p-16 relative overflow-hidden">
+            <div className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-10 blur-3xl"></div>
+            <h2 className="text-5xl font-bold text-gray-800 mb-4">{slide.title}</h2>
+            <p className="text-2xl text-gray-600 mb-12">{slide.subtitle}</p>
+            
+            <div className="grid grid-cols-2 gap-8 mb-12">
+              {slide.benefits.map((benefit, idx) => (
+                <div key={idx} className="group">
+                  <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl p-8 border-2 border-green-200 group-hover:border-green-400 transition-all duration-300 group-hover:shadow-xl">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-gradient-to-r from-green-600 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center text-white mr-4">
+                        {benefit.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-800">{benefit.title}</h3>
+                        <span className="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                          {benefit.metric}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed">{benefit.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {slide.example && (
+              <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white">
+                <h3 className="text-2xl font-bold mb-4">{slide.example.title}</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div className="bg-white/20 rounded-xl p-4">
+                      <h4 className="font-semibold mb-2">User Input:</h4>
+                      <p className="text-sm italic">"{slide.example.input}"</p>
+                    </div>
+                    <div className="bg-white/20 rounded-xl p-4">
+                      <h4 className="font-semibold mb-2">AI Processing:</h4>
+                      <p className="text-sm">{slide.example.processing}</p>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="bg-white/20 rounded-xl p-4">
+                      <h4 className="font-semibold mb-2">Next Query:</h4>
+                      <p className="text-sm italic">"{slide.example.nextQuery}"</p>
+                    </div>
+                    <div className="bg-white/20 rounded-xl p-4">
+                      <h4 className="font-semibold mb-2">Result:</h4>
+                      <p className="text-sm">{slide.example.result}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         );
 
@@ -791,22 +841,60 @@ const PresentationSlideshow = () => {
         return (
           <div className="flex flex-col min-h-full p-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-12">{slide.title}</h2>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {slide.materials.map((material, idx) => (
-                <div key={idx} className="group">
-                  <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-1 group-hover:shadow-2xl transition-all duration-300">
-                    <div className="bg-white rounded-3xl p-8 h-full flex items-center">
-                      <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-4 mr-6">
-                        <div className="text-white">{material.icon}</div>
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">{material.type}</h3>
-                        <p className="text-gray-600">{material.desc}</p>
+                <Link key={idx} to={material.link} className="group">
+                  <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-1 group-hover:shadow-2xl transition-all duration-300 transform group-hover:scale-105">
+                    <div className="bg-white rounded-3xl p-8 h-full">
+                      <div className="flex items-start space-x-6">
+                        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-4 flex-shrink-0">
+                          <div className="text-white">{material.icon}</div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
+                            {material.type}
+                          </h3>
+                          <p className="text-gray-600 mb-4">{material.desc}</p>
+                          
+                          <div className="flex items-center justify-between text-sm">
+                            <div className="flex items-center space-x-4">
+                              <div className="flex items-center space-x-1">
+                                <Clock className="w-4 h-4 text-purple-500" />
+                                <span className="text-gray-600">{material.time}</span>
+                              </div>
+                              <div className="flex items-center space-x-1">
+                                <Target className="w-4 h-4 text-purple-500" />
+                                <span className="text-gray-600">{material.audience}</span>
+                              </div>
+                            </div>
+                            <div className="flex items-center space-x-2 text-purple-600 font-medium group-hover:text-purple-700">
+                              <span>Launch</span>
+                              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
+            </div>
+            
+            <div className="mt-16 text-center">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 max-w-4xl mx-auto border border-purple-200">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Complete Training Journey</h3>
+                <div className="flex items-center justify-center space-x-4 text-gray-600">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                    <span>Start with One-Pager (Partners)</span>
+                  </div>
+                  <ArrowRight className="text-purple-400" size={20} />
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                    <span>Hands-on Training (Team)</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -1000,114 +1088,54 @@ const PresentationSlideshow = () => {
           </div>
         );
 
-      case 'context-system':
+      case 'thank-you':
         return (
-          <div className="flex flex-col min-h-full p-16 relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-green-400 to-teal-400 rounded-full opacity-10 blur-3xl"></div>
-            <h2 className="text-5xl font-bold text-gray-800 mb-4">{slide.title}</h2>
-            <p className="text-2xl text-gray-600 mb-12">{slide.subtitle}</p>
-            
-            <div className="grid grid-cols-2 gap-8 mb-12">
-              {slide.features.map((feature, idx) => (
-                <div key={idx} className="bg-gradient-to-br from-green-50 to-teal-50 rounded-3xl p-8 border-2 border-green-200">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-gradient-to-r from-green-600 to-teal-600 w-12 h-12 rounded-xl flex items-center justify-center text-white mr-4">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-800">{feature.title}</h3>
-                  </div>
-                  <p className="text-gray-600 mb-4">{feature.description}</p>
-                  <div className="bg-white rounded-lg p-3 mb-3 border-l-4 border-green-500">
-                    <p className="text-sm text-gray-700"><strong>Technical:</strong> {feature.technical}</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-green-100 to-teal-100 rounded-lg p-3">
-                    <p className="text-sm text-gray-700"><strong>Benefit:</strong> {feature.benefit}</p>
-                  </div>
-                </div>
-              ))}
+          <div className="flex flex-col items-center justify-center min-h-full p-16 text-center relative">
+            {/* Background decoration */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-20 left-20 w-32 h-32 bg-blue-600/10 rounded-full blur-xl"></div>
+              <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-600/10 rounded-full blur-xl"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-green-200">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">{slide.example.scenario}</h3>
-              <div className="space-y-4">
-                {slide.example.queries.map((query, idx) => (
-                  <div key={idx} className="flex items-start">
-                    <div className="bg-gradient-to-r from-green-600 to-teal-600 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm mr-4 mt-1">
-                      {query.step}
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-semibold text-gray-800">"{query.query}"</p>
-                      <p className="text-sm text-gray-600 mt-1">{query.context}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
 
-      case 'interactive-demo':
-        return (
-          <div className="flex flex-col min-h-full p-16 relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-10 blur-3xl"></div>
-            <h2 className="text-5xl font-bold text-gray-800 mb-4">{slide.title}</h2>
-            <p className="text-2xl text-gray-600 mb-12">{slide.subtitle}</p>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl p-8 border-2 border-green-200">
-                <h3 className="text-2xl font-bold text-green-800 mb-6">{slide.scenario.title}</h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-green-700 mb-2">Your Role:</h4>
-                    <p className="text-green-600">{slide.scenario.role}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-green-700 mb-2">Situation:</h4>
-                    <p className="text-green-600">{slide.scenario.situation}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-green-700 mb-2">Challenge:</h4>
-                    <p className="text-green-600">{slide.scenario.challenge}</p>
-                  </div>
+            <div className="relative z-10 max-w-4xl mx-auto">
+              {/* Main thank you message */}
+              <div className="mb-12">
+                <h1 className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-6">
+                  {slide.title}
+                </h1>
+                <p className="text-3xl text-gray-300 font-light">
+                  {slide.subtitle}
+                </p>
+              </div>
+
+              {/* Contact information */}
+              <div className="space-y-6 mb-12">
+                <div className="flex items-center justify-center space-x-4 text-xl text-gray-400">
+                  <span className="text-blue-500">✉</span>
+                  <span>{slide.contact.email}</span>
+                </div>
+                <div className="flex items-center justify-center space-x-4 text-xl text-gray-400">
+                  <span className="text-purple-500">🌐</span>
+                  <span>{slide.contact.website}</span>
                 </div>
               </div>
-              
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 border-2 border-blue-200">
-                <h3 className="text-2xl font-bold text-blue-800 mb-6">Learning Objectives</h3>
-                <ul className="space-y-3">
-                  {slide.scenario.objectives.map((objective, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-blue-700">{objective}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <Link 
-                to={slide.id === 'conceptual-one-pager' ? '/conceptual-one-pager' : '/interactive-scenario'}
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl group text-xl font-semibold"
-              >
-                <Play className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
-                {slide.id === 'conceptual-one-pager' ? 'View One-Pager' : 'Start Interactive Scenario'}
-              </Link>
-            </div>
-            
-            <div className="mt-8 text-center">
-              <div className="inline-flex items-center space-x-6 text-gray-600">
+
+              {/* Decorative elements */}
+              <div className="flex justify-center items-center space-x-8 text-gray-500">
                 <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{slide.id === 'conceptual-one-pager' ? '3 minutes' : '45-60 minutes'}</span>
+                  <Star className="w-6 h-6 text-yellow-500" />
+                  <span className="text-lg">Innovation</span>
                 </div>
+                <div className="w-px h-8 bg-gray-600"></div>
                 <div className="flex items-center space-x-2">
-                  <Users className="w-4 h-4" />
-                  <span>{slide.id === 'conceptual-one-pager' ? 'Partners & stakeholders' : 'Individual or small groups'}</span>
+                  <Rocket className="w-6 h-6 text-blue-500" />
+                  <span className="text-lg">Growth</span>
                 </div>
+                <div className="w-px h-8 bg-gray-600"></div>
                 <div className="flex items-center space-x-2">
-                  <Target className="w-4 h-4" />
-                  <span>{slide.id === 'conceptual-one-pager' ? 'Quick overview' : 'Hands-on learning'}</span>
+                  <Brain className="w-6 h-6 text-purple-500" />
+                  <span className="text-lg">Intelligence</span>
                 </div>
               </div>
             </div>
