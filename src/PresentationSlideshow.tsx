@@ -291,6 +291,21 @@ const PresentationSlideshow = () => {
       ]
     },
     {
+      id: 'interactive-demo',
+      title: 'Interactive Demo',
+      type: 'training',
+      materials: [
+        { 
+          type: 'Interactive Scenario', 
+          desc: 'Hands-on walkthrough of AI-powered deal research', 
+          icon: <Users className="w-8 h-8" />,
+          link: '/interactive-scenario',
+          time: '15-20 minutes',
+          audience: 'All Users'
+        }
+      ]
+    },
+    {
       id: 'success-metrics',
       title: 'Success Metrics We Will Track',
       type: 'metrics',
@@ -759,7 +774,7 @@ const PresentationSlideshow = () => {
                       <div className="grid grid-cols-2 gap-4">
                         {step.details.map((detail, i) => (
                           <div key={i} className="flex items-center">
-                            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3"></div>
+                            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                             <span className="text-gray-700">{detail}</span>
                           </div>
                         ))}
